@@ -7,7 +7,7 @@ result = ""
 if vyr > izd:
     result = "прибыль"
     rent = (vyr - izd) / vyr
-    rent_str = f"рентабельность равна {rent}"
+    rent_str = f"рентабельность равна {rent:.4f}"
 elif vyr < izd:
     result = "убыток"
 else:
@@ -20,5 +20,5 @@ if rent != 1:
     if sotr_count <= 0:
         print("Да вы никак обнуть нас хотите ?")
     else:
-        print(f"А ведь на каждого сотрудника вашей фирмы приходится : {(vyr - izd) / sotr_count} рублей прибыли !")
+        print(f"А ведь на каждого сотрудника вашей фирмы приходится : {((vyr - izd) / sotr_count):.0f} рублей прибыли !")
 
