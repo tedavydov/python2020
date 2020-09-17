@@ -7,10 +7,12 @@ def st_func(x, y):
     except:
         print("Некорректные аргументы функции")
         return -1
-    if exp < 0:
-        res = num ** exp
-    else:
+    if num < 0:
+        print("Первый аргумент должен быть действительным положительным числом")
+    elif exp > 0:
         print("Второй аргумент должен быть отрицательным целым числом")
+    else:
+        res = num ** exp
     return res
 
 
@@ -23,12 +25,14 @@ def my_func(x, y):
     except:
         print("Некорректные аргументы функции")
         return -1
-    if exp < 0:
+    if num < 0:
+        print("Первый аргумент должен быть действительным положительным числом")
+    elif exp > 0:
+        print("Второй аргумент должен быть отрицательным целым числом")
+    else:
         for i in range(abs(exp)):
             res = res * num
         res = 1 / res
-    else:
-        print("Второй аргумент должен быть отрицательным целым числом")
     return res
 
 
