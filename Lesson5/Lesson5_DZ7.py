@@ -19,10 +19,10 @@ try:
         print('Ошибка обработки файла, программа завершена !')
     finally:
         src_file.close()
+        firm_list.append(firm_tmp)
         if firm_count:
             firm_summ = firm_summ / firm_count
             summation = dict(average_profit=firm_summ)
-            firm_list.append(firm_tmp)
             firm_list.append(summation)
         print(firm_list)
 except:
