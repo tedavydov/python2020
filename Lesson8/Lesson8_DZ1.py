@@ -3,32 +3,23 @@ class Data:
     def __init__(self, data):
         if data and isinstance(data, str):
             self.__data_s = data
+
             # думаю что конвертация и валидация должны проводится сразу при создании обьекта
-
-            # метод класса должен получить данные инициализации объекта
-            # print(f"CONVERT (00): self.__data_s = ({str(self.__data_s)})")
-            self.__convert_to_num(self)
-            # print(f"CONVERT (01): self.__data_s = ({str(self.__data_s)})")
-
+            # --------------------------------------------------------
             # так метод класса не получит данные инициализации объекта
             # self.__convert_to_num()
-
+            # --------------------------------------------------------
+            # метод класса должен получить данные инициализации объекта
+            self.__convert_to_num(self)
             self.__date_validation(self)
-            # print(f"validation (02): self.__data_s = ({str(self.__data_s)})")
-            # но можно для чистоты эксперимента их вызывать отдельно
 
         else:
             self.__data_s = ""
             print(f"ERROR: DATA is not a string ({str(data)})")
 
     def __str__(self):
-        # print(f"__str__ (x1): self.__data_s = ({str(self.__data_s)})")
         if self.__data_s:
             try:
-                # print(f"__str__ (x2): self.__y/__m/__d = {self.__y}/{self.__m}/{self.__d}")
-                # print(f"__str__ (x3): self.__data_s = ({str(self.__data_s)})")
-                # print()
-
                 if self.__y and self.__m and self.__d:
                     return f"Date: {self.__y}/{self.__m}/{self.__d}"
                 else:
@@ -40,7 +31,6 @@ class Data:
 
     @classmethod
     def __convert_to_num(cls, obj):
-        # print(f"CONVERT (0) @classmethod: obj.__data_s = ({str(obj.__data_s)})")
         if obj.__data_s:
             try:
                 if obj.__data_s.find(".") >= 0:
@@ -52,18 +42,10 @@ class Data:
                 else:
                     tmp = map(int, obj.__data_s.split())
                 obj.__y, obj.__m, obj.__d = tmp
-                # print(f"CONVERT Ok : date = ({str(obj.__y)}/{str(obj.__m)}/{str(obj.__d)})")
-                # cls.__y, cls.__m, cls.__d = [1901, 55, 7]  # тест 2 ( для сравнения )
-                # print(f"CONVERT 1901/55/7 : cls date = ({str(cls.__y)}/{str(cls.__m)}/{str(cls.__d)})")
-                # cls.__y, cls.__m, cls.__d = [1901, 5, 7]  # тест 1 ( для сравнения )
-                # print(f"CONVERT 1901/5/7 : cls date = ({str(cls.__y)}/{str(cls.__m)}/{str(cls.__d)})")
-                # cls.__y, cls.__m, cls.__d = tmp  # для теста ( как было с ошибкой месяц=13 в __str__ )
-                # print(f"CONVERT : cls date = ({str(cls.__y)}/{str(cls.__m)}/{str(cls.__d)})")
             except:
                 print(f"CONVERT ERROR: wrong date format ({str(obj.__data_s)})")
         else:
             print("CONVERT ERROR: date not set")
-        # print(f"CONVERT (1) @classmethod: obj.__data_s = ({str(obj.__data_s)})")
 
     @staticmethod
     def __date_validation(self_obj):
@@ -114,8 +96,3 @@ date_5 = Data("2001/13/05")
 print()
 print("=" * 10, "проверим что же мы насоздавали", "=" * 25)
 print(f"1: {date_1}\n2: {date_2}\n3: {date_3}\n4: {date_4}\n5: {date_5}")
-# print("1: ", date_1)
-# print("2: ", date_2)
-# print("3: ", date_3)
-# print("4: ", date_4)
-# print("5: ", date_5)
