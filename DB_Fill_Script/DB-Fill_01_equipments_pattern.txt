@@ -1,0 +1,6 @@
+﻿serialnum, hostname, type_id
+gen_sn, gen_ht, gen_id
+dict, host??*123!!!!0*, dict
+list
+DB-Fill_01_equipments_SN_templates.txt
+
